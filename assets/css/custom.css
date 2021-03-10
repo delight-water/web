@@ -1,70 +1,84 @@
 /**********************
 /***** Services *******
 /*********************/
+
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-section{
+section {
     padding: 60px 0;
 }
-section .section-title{
-    text-align:center;
-    color:dodgerblue;
-    margin-bottom:50px;
-    text-transform:uppercase;
+
+section .section-title {
+    text-align: center;
+    color: dodgerblue;
+    margin-bottom: 50px;
+    text-transform: uppercase;
 }
-#what-we-do{
-    background:#ffffff;
+
+#what-we-do {
+    background: #ffffff;
 }
-#what-we-do .card{
+
+#what-we-do .card {
     padding: 1rem!important;
     border: none;
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
     -webkit-transition: .5s all ease;
     -moz-transition: .5s all ease;
     transition: .5s all ease;
 }
-#what-we-do .card:hover{
+
+#what-we-do .card:hover {
     -webkit-box-shadow: 5px 7px 9px 4px rgb(158, 158, 158);
     -moz-box-shadow: 5px 7px 9px 4px rgb(158, 158, 158);
     box-shadow: 5px 7px 9px 4px rgb(158, 158, 158);
 }
-#what-we-do .card .card-block{
+
+#what-we-do .card .card-block {
     padding-left: 50px;
     position: relative;
 }
-#what-we-do .card .card-block a{
+
+#what-we-do .card .card-block a {
     color: dodgerblue !important;
-    font-weight:700;
-    text-decoration:none;
+    font-weight: 700;
+    text-decoration: none;
 }
 
-#what-we-do .card .card-block:before{
+#what-we-do .card .card-block:before {
     font-family: FontAwesome;
     position: absolute;
     font-size: 39px;
     color: dodgerblue;
     left: 0;
     -webkit-transition: -webkit-transform .2s ease-in-out;
-    transition:transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
 }
-#what-we-do .card .block-1:before{
+
+#what-we-do .card .block-1:before {
     content: "\f0e7";
 }
-#what-we-do .card .block-2:before{
+
+#what-we-do .card .block-2:before {
     content: "\f0eb";
 }
-#what-we-do .card .block-3:before{
+
+#what-we-do .card .block-3:before {
     content: "\f00c";
 }
-#what-we-do .card .block-4:before{
+
+#what-we-do .card .block-4:before {
     content: "\f209";
 }
-#what-we-do .card .block-5:before{
+
+#what-we-do .card .block-5:before {
     content: "\f0a1";
 }
-#what-we-do .card .block-6:before{
+
+#what-we-do .card .block-6:before {
     content: "\f218";
 }
-#what-we-do .card:hover .card-block:before{
+
+#what-we-do .card:hover .card-block:before {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
     -webkit-transition: .5s all ease;
@@ -72,3 +86,196 @@ section .section-title{
     transition: .5s all ease;
 }
 
+/**
+    Contact Form
+ */
+
+.register{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 3%;
+    padding: 3%;
+}
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 10%;
+    margin-top: 10%;
+}
+.btnRegister{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #0062cc;
+    border: 2px solid #0062cc;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+}
+
+
+
+/**
+
+ */
+
+.events-date {
+    text-align: center;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background-color: rgba(25, 47, 89, 0.9);
+    color: #fff;
+    padding: 12px 20px 8px 20px;
+    text-transform: uppercase
+}
+
+.event-time li {
+    display: inline-block;
+    margin-right: 20px
+}
+
+.event-time li:last-child {
+    margin-right: 0
+}
+
+.event-time li i {
+    color: #59c17a
+}
+
+.event-block {
+    box-shadow: 0px 0px 16px 0px rgba(187, 187, 187, 0.48)
+}
+
+.event-block ul li i {
+    color: #59c17a
+}
+
+@media screen and (max-width: 1199px) {
+    .event-date {
+        padding: 10px 18px 6px 18px
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .event-date {
+        padding: 8px 15px 4px 15px
+    }
+    .events-date {
+        padding: 10px 15px 6px 15px
+    }
+}
+
+.position-relative {
+    position: relative !important;
+}
+
+.margin-40px-bottom {
+    margin-bottom: 40px;
+}
+.padding-60px-lr {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.margin-15px-bottom {
+    margin-bottom: 15px;
+}
+.font-weight-500 {
+    font-weight: 500;
+}
+.font-size22 {
+    font-size: 22px;
+}
+.text-theme-color {
+    color: #192f59;
+}
+.margin-10px-bottom {
+    margin-bottom: 10px;
+}
+.margin-10px-right {
+    margin-right: 10px;
+}
+
+
+/* water ripple */
+
+canvas#canvas {
+    display: block;
+    background: #373B44;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
