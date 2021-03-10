@@ -280,10 +280,10 @@ canvas#canvas {
     background: linear-gradient(to bottom, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-ul{
+.oe1 ul{
     margin-top: 25px!important;
 }
 
-ul li {
+.oe1 ul li {
     margin:12px;
 }
