@@ -1,11 +1,11 @@
 // equal heights
-var maxHeight = 0;
+/*var maxHeight = 0;
 
 $("div.oe1").each(function(){
     if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
 });
 
-$("div.oe1").height(maxHeight);
+$("div.oe1").height(maxHeight);*/
 
 
 
