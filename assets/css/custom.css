@@ -295,14 +295,14 @@ canvas#canvas {
     margin-bottom: 2rem;
 }
 
-.wrap:hover {
+/*.wrap:hover {
     background: linear-gradient(135deg, #6394ff 0%, #2f6cfa 100%);
     color: white;
 
 }
 .wrap h2:hover{
     color: white;
-}
+}*/
 
 .ico-wrap {
     margin: auto;
@@ -340,4 +340,9 @@ p {
 }
 .display-6 {
     font-family: 'Source Sans Pro',sans-serif;
-    font-size: 1rem}
+    font-size: 1rem
+}
+
+.text-white{
+    color: white!important;
+}
