@@ -18,3 +18,17 @@ $(".rippleContent").ripples({
     interactive: true,
     perturbance: 0.02,
 });
+
+$(document).ready(function(){
+    $("#sendEmail").on('click', function(){
+        Email.send({
+            SecureToken : "c6c3c7b6-887a-49f4-ae50-bba7332c2014",
+            To : 'maheshkcot95@gmail.com',
+            From : "info@delightwatersolutions.com",
+            Subject : "This is the subject",
+            Body : "And this is the body"
+        }).then(
+            message => alert(message)
+        );
+    })
+})

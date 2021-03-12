@@ -30,7 +30,7 @@
         // var c = url.searchParams.get("c");
 
         if (findGetParameter('development') == undefined) {
-            window.location = "/comingsoon";
+            window.location = "comingsoon";
         }
 
         function findGetParameter(parameterName) {
@@ -84,7 +84,7 @@
           <span class="icon-bar"></span>
         </button>
                     <a class="navbar-brand" href="./index.html" title="">
-                        <img src="./assets/images/mashup-icon.svg" class="navbar-logo-img" alt=""> Delight Water Solutions
+                        <img src="./assets/images/delight-water-logo.png" style="width:40px;height:40px" class="navbar-logo-img" alt=""> Delight Water Solutions
                     </a>
                 </div>
 
@@ -640,7 +640,7 @@
                                 <div class="form-group">
                                     <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
                                 </div>
-                                <input type="submit" class="btnRegister"  value="Contact"/>
+                                <input type="submit" id="sendEmail" class="btnRegister"  value="Contact"/>
                             </div>
                         </div>
                     </div>
@@ -701,6 +701,8 @@
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
     <script src=
                     "https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js">
+    </script>
+    <script src="https://smtpjs.com/v3/smtp.js">
     </script>
     <script src='assets/js/custom.js'></script>
 
