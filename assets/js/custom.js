@@ -22,9 +22,9 @@ $(".rippleContent").ripples({
 $(document).ready(function(){
     $("#sendEmail").on('click', function(){
         Email.send({
-            SecureToken : "c6c3c7b6-887a-49f4-ae50-bba7332c2014",
+            SecureToken : "2303ac89-0f24-40b3-85dc-b0d154477aa6",
             To : 'maheshkcot95@gmail.com',
-            From : "info@delightwatersolutions.com",
+            From : "noreply@delightwatersolutions.com",
             Subject : "This is the subject",
             Body : "And this is the body"
         }).then(
