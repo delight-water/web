@@ -7,7 +7,7 @@ $("div.oe1").each(function(){
 
 $("div.oe1").height(maxHeight);*/
 
-AOS.init();
+//AOS.init();
 
 
 /*  water ripple */
