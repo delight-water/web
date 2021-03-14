@@ -12,12 +12,12 @@ $("div.oe1").height(maxHeight);*/
 
 /*  water ripple */
 
-$(".rippleContent").ripples({
+/*$(".rippleContent").ripples({
     resolution: 1024,
     dropRadius: 20,
     interactive: true,
     perturbance: 0.02,
-});
+});*/
 
 $(document).ready(function(){
     /*$("#sendEmail").on('click', function(){
