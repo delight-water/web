@@ -346,3 +346,15 @@ p {
 .text-white{
     color: white!important;
 }
+
+
+.greyWrapper {
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* msie */
+    background-color: #fff!important;
+}
+.greyWrapper img {
+    height: 150px;
+}
+
+/* scroll icon */
