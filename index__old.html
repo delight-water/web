@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="Delight Water Solutions: Your trusted partner for water purification and waste water management in Sri Lanka. We offer a broad range of services, supplies, and customized solutions." name="description">
+    <meta name="google" content="notranslate" />
+    <meta content="Delight Water Solutions" name="author">
+    <meta name="keywords" content="Delight, Water Solutions, Water Filter, RO Plant, Waste Water Treatment, Sri Lanka, Water Purification">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link href="./main.550dcf66.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0077b6;
+            --secondary: #00b4d8;
+            --accent: #90e0ef;
+            --light: #caf0f8;
+            --dark: #03045e;
+            --text: #333333;
+            --bg-light: #f8f9fa;
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .float-right {
+            float: right;
+        }
+        
+        .text-white {
+            color: white !important;
+        }
+        
+        a { 
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            text-decoration: none;
+            color: var(--accent);
+        }
+        
+        /* Navigation styles */
+        nav.navbar-default {
+            box-shadow: var(--shadow-md);
+        }
+        
+        nav .text-white {
+            background: linear-gradient(135deg, var(--primary), var(--dark)) !important;
+            padding: 10px 45px !important;
+        }
+        
+        .navbar-brand {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand img {
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand:hover img {
+            transform: rotate(15deg);
+        }
+        
+        /* Hero section */
+        .hero-full-container {
+            background: linear-gradient(rgba(3, 4, 94, 0.7), rgba(0, 119, 182, 0.7)), 
+                        url('assets/images/water-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 120px 0;
+            overflow: hidden;
+        }
+        
+        .hero-full-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: url('assets/images/wave.svg');
+            background-size: cover;
+        }
+        
+        .hero-full-container h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .shadowedTitle {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Section styling */
+        .section-container {
+            padding: 80px 0;
+        }
+        
+        .section-container-spacer {
+            margin-bottom: 50px;
+        }
+        
+        .section-container h2, .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+        }
+        
+        .section-container h2::after, .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        /* Cards styling */
+        .card {
+            border: none;
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .oe1 {
+            padding: 25px;
+        }
+        
+        .text-info {
+            color: var(--primary) !important;
+        }
+        
+        .badge-info {
+            background-color: var(--secondary);
+        }
+        
+        /* Why Choose Us section */
+        #what-we-do {
+            background-color: var(--bg-light);
+            padding: 80px 0;
+        }
+        
+        .wrap {
+            display: flex;
+            margin-bottom: 40px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            padding: 30px;
+            transition: var(--transition);
+        }
+        
+        .wrap:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .ico-wrap {
+            width: 80px;
+            height: 80px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--primary);
+            font-size: 30px;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        
+        .wrap:hover .ico-wrap {
+            background: var(--primary);
+            color: white;
+            transform: rotateY(180deg);
+        }
+        
+        .mbr-bold {
+            font-weight: 700;
+        }
+        
+        /* Customers section */
+        .greyWrapper {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .image-center {
+            margin: 0 auto;
+            max-height: 100px;
+            width: auto;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .image-center:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        /* Contact form */
+        .section.register {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            padding: 60px 0;
+            margin-top: 80px;
+        }
+        
+        .register-left {
+            text-align: center;
+            color: #fff;
+            margin-top: 4%;
+        }
+        
+        .register-left img {
+            margin-bottom: 18px;
+            width: 80px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .register-right {
+            background: #f8f9fa;
+            border-top-left-radius: 10% 50%;
+            border-bottom-left-radius: 10% 50%;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .register-heading {
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+        
+        .btnRegister {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btnRegister:hover {
+            background: var(--dark);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-control {
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #e1e1e1;
+            height: 45px;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary);
+        }
+        
+        textarea.form-control {
+            height: 120px;
+            resize: none;
+        }
+        
+        /* Footer */
+        .footer-container {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            padding: 80px 0 30px;
+        }
+        
+        .white-round-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            transition: var(--transition);
+        }
+        
+        .white-round-icon:hover {
+            background: var(--accent);
+            color: var(--dark) !important;
+            transform: translateY(-5px);
+        }
+        
+        /* Animation settings */
+        [data-aos] {
+            opacity: 0;
+            transition-property: opacity, transform;
+        }
+        
+        [data-aos].aos-animate {
+            opacity: 1;
+        }
+        
+        [data-aos="zoom-in"] {
+            transform: scale(0.9);
+        }
+        
+        [data-aos="zoom-in"].aos-animate {
+            transform: scale(1);
+        }
+        
+        [data-aos="zoom-in-up"] {
+            transform: scale(0.9) translateY(20px);
+        }
+        
+        [data-aos="zoom-in-up"].aos-animate {
+            transform: scale(1) translateY(0);
+        }
+        
+        [data-aos="fade-up"] {
+            transform: translateY(20px);
+        }
+        
+        [data-aos="fade-up"].aos-animate {
+            transform: translateY(0);
+        }
+        
+        /* Responsive adjustments */
+        @media only screen and (max-width: 768px) {
+            .showonlymobile {
+                display: block;
+            }
+            .showonlylg {
+                display: none;
+            }
+            
+            .hero-full-container h1 {
+                font-size: 2rem;
+            }
+            
+            .section-container {
+                padding: 50px 0;
+            }
+            
+            .wrap {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .ico-wrap {
+                margin: 0 auto 20px;
+            }
+        }
+    </style>
+
+    <link href="assets/css/custom.css" rel="stylesheet">
+    <title>Delight Water Solutions - Your Trusted Water Purification Partner in Sri Lanka</title>
+    <script>
+        if (findGetParameter('development') == undefined) {
+           // window.location = "comingsoon";
+        }
+
+        function findGetParameter(parameterName) {
+            var result = null,
+                tmp = [];
+            location.search
+                .substr(1)
+                .split("&")
+                .forEach(function(item) {
+                    tmp = item.split("=");
+                    if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+                });
+            return result;
+        }
+    </script>
+
+    <!-- Schema Markups -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "url": "https://www.delightwatersolutions.com",
+            "logo": "https://www.delightwatersolutions.com/assets/images/delight-water-logo.png"
+        }
+    </script>
+    <!-- JSON-LD markup generated by Google Structured Data Markup Helper. -->
+    <script type="application/ld+json">
+        [ {
+            "@context" : "http://schema.org",
+            "@type" : "Product",
+            "name" : "Industrial RO Plants",
+            "image" : "https://delightwatersolutions.com/assets/images/industrial-ro-water-filter-500x500.png",
+            "description" : "Brackish Water RO Plant ( <SPAN class=\"badge badge-info\">250 L/H</SPAN> <SPAN class=\"badge badge-info\">500 L/H</SPAN> <SPAN class=\"badge badge-info\"> 1000 L/H </SPAN> )</LI>\n                        <LI>Sea Water RO Plant ( <SPAN class=\"badge badge-info\">250 L/H</SPAN>\n                            <SPAN class=\"badge badge-info\">500 L/H</SPAN> <SPAN class=\"badge badge-info\">1000 L/H</SPAN> - HIGH TDS,\n                            LOW TDS UP TO 35000 PPM )</LI>\n                        <LI>Fishing Boat RO Plant</LI>\n                        <LI>Waste Water Recycle RO Plant</LI>\n                        <LI>Drinking Water Treatment Plant"
+        }, {
+            "@context" : "http://schema.org",
+            "@type" : "Product",
+            "name" : "Domestic RO Plants",
+            "image" : "https://delightwatersolutions.com/assets/images/domestic-reverse-osmosis-system_03.png",
+            "description" : "Household Under Sink RO system ( <SPAN class=\"badge badge-info\">50 / 75 / 100 </SPAN> -  GPD) </LI>\n                        <LI>Domestic Easy Use RO System ( <SPAN class=\"badge badge-info\">100 TO 3000 GPD</SPAN>)</LI>\n                        <LI>Hot &amp; Cold Household RO System</LI>\n                        <LI>Ultimate Office Water Filter system (Direct Water from TAP\n                            Line)</LI>\n                        <LI>Electronic Cooling with FSU Dispenser RO System</LI>\n                        <LI>Compressor"
+        }, {
+            "@context" : "http://schema.org",
+            "@type" : "Product",
+            "name" : "Waste Water Treatment Plant & Equipment",
+            "image" : "https://delightwatersolutions.com/assets/images/wastewater-treatment-clipart-8.png",
+            "description" : "Etp </LI>\n                        <LI>Oil Separator</LI>\n                        <LI>Membrane Bio Reactor</LI>\n                        <LI>Moving Bead Bio Reactor</LI>\n                        <LI>Biological Aerations</LI>\n                        <LI>Anorobic</LI>\n                        <LI>Lamela Waste Water Treatment Plant"
+        }, {
+            "@context" : "http://schema.org",
+            "@type" : "Product",
+            "name" : "Water Filtering Equipment",
+            "image" : "https://delightwatersolutions.com/assets/images/spares.png",
+            "description" : "Industrial Pumps </LI>\n                        <LI>Filter Vessels</LI>\n                        <LI>Multiport Valve</LI>\n                        <LI>Filter Media</LI>\n                        <LI>Sand Filter</LI>\n                        <LI>Activate Carbon Filter</LI>\n                        <LI>Water Softener</LI>\n                        <LI>Iron Removal Filter"
+        } ]
+    </script>
+</head>
+
+<body>
+    <!-- Add your content of header -->
+    <header>
+        <nav class="navbar navbar-default active">
+            <div class="text-white float-right" style="background-color:#004b91;padding-left:45px; width: 100%;display:flex;flex-direction:row-reverse;">
+                <div class="showonlylg" style="margin-right:10px;">
+                 <span >  Hotline : </span> 
+                 <span class><i class="fa fa-phone"></i> <a href="tel:+94772666829"> +94 77 266 6829</a> </span> 
+                 <span class><i class="fa fa-phone"></i> <a href="tel:+777822332"> +94 77 78 22 332</a> </span> 
+                 &nbsp;
+                 &nbsp;
+                 <span style="margin-left:20px" style="display: inline-block;">  <i class="fa fa-at"></i> <a href="mailto:contact@delightwatersolutions.com"> contact@delightwatersolutions.com</a> </span>
+                </div>
+                
+                <div class="showonlymobile" style="margin-right:10px;">
+                 <span >  Hotline : </span> 
+                 <a href="tel:+94772666829"> 
+                     <span class style="margin:20px" > <i class="fa fa-phone"></i></span>
+                 </a> 
+                 &nbsp;
+                 <a href="mailto:contact@delightwatersolutions.com">
+                     <span style="margin:20px" style="display: inline-block;"><i class="fa fa-at"></i></span>
+                 </a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+                    <a class="navbar-brand" href="./index.html" title="">
+                        <img src="./assets/images/delight-water-logo.png" style="width:40px;height:40px" class="navbar-logo-img" alt=""> Delight Water Solutions
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse" >
+                    <ul class="nav navbar-nav navbar-right">
+                        <div class="float-left text-white">
+                           
+                        </div>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Add your site or app content here -->
+    <div class="hero-full-container rippleContent background-image-container white-text-container">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12" style="position: relative;z-index: 100">
+                    <h1 class="mb-1 shadowedTitle">Delight Water Solutions</h1>
+                    <p class="lead">Your trusted partner for comprehensive water purification and waste water management solutions in Sri Lanka.</p>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8 col-md-offset-2">
+                    <div class="text-center">
+                        <h2>About Us</h2>
+                        <p>
+                            Delight Water Solutions (Private) Limited, established in 2016, is dedicated to providing comprehensive solutions for water purification and waste water management projects. We offer a broad range of services, supplies, components, and accessories, as well as customized solutions such as reengineering, upgrading, and refurbishing existing plants. Our expertise extends to operation and maintenance solutions, chlorination, and the supply of spare parts and chemicals.
+                        </p>
+                        <p>
+                            Initially focused on serving the household sector with drinking water solutions, Delight Water Solutions has expanded into industrial market segments to meet the growing demand for comprehensive water management services. We assist our clients in achieving optimal designs, utilizing the best technologies and operational techniques to fulfill their specific requirements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="expertise" class="section-container">
+        <div class="container">
+            <div class="row section-container-spacer">
+                <div class="col-xs-12 col-md-12 text-center">
+                    <h2>Our Fields of Expertise</h2>
+                    <p>We are committed to providing the best possible service and equipment.</p>
+                </div>
+            </div>
+            <div  data-aos="zoom-in-up" class="row card mb-4" style="margin-bottom: 60px;max-width: 99vw;">
+                <div class="col-md-6 text-center oe1" style="">
+                    <img src="assets/images/industrial-ro-water-filter-500x500.webp"  style="width:450px;max-width:60vw;" class="w-50" alt="Industrial RO Plants">
+                </div>
+                <div class="col-md-6 oe1" style="vertical-align:middle;">
+                    <h3 class="text-muted text-info"> Industrial RO Plants </h3>
+                    <ul class="mx-2">
+                        <li>Brackish Water RO Plant ( <span class="badge badge-info">250 L/H</span> <span class="badge badge-info">500 L/H</span> <span class="badge badge-info"> 1000 L/H </span> )</li>
+                        <li>Sea Water RO Plant ( <span class="badge badge-info">250 L/H</span>
+                            <span class="badge badge-info">500 L/H</span> <span class="badge badge-info">1000 L/H</span> - HIGH TDS,
+                            LOW TDS UP TO 35000 PPM )</li>
+                        <li>Fishing Boat RO Plant</li>
+                        <li>Waste Water Recycle RO Plant</li>
+                        <li>Drinking Water Treatment Plant</li>
+                    </ul>
+                </div>
+            </div>
+            <div  data-aos="zoom-in-up" class="row card mb-4" style="margin-bottom: 60px;max-width: 99vw;">
+                <div class="col-md-6 text-center  oe1" style="">
+                    <img src="assets/images/domestic-reverse-osmosis-system_03.webp"  style="width:400px;max-width:60vw;" class="w-50" alt="Domestic RO Plants">
+                </div>
+                <div class="col-md-6 oe1" style="vertical-align:middle;">
+                    <h3 class="text-muted text-info"> Domestic RO Plants </h3>
+                    <ul class="mx-2">
+                        <li>Household Under Sink RO system ( <span class="badge badge-info">50 / 75 / 100 </span> -  GPD) </li>
+                        <li>Domestic Easy Use RO System ( <span class="badge badge-info">100 TO 3000 GPD</span>)</li>
+                        <li>Hot & Cold Household RO System</li>
+                        <li>Ultimate Office Water Filter system (Direct Water from TAP
+                            Line)</li>
+                        <li>Electronic Cooling with FSU Dispenser RO System</li>
+                        <li>Compressor Cooling with FSU Dispenser RO System</li>
+                    </ul>
+                </div>
+            </div>
+            <div  data-aos="zoom-in-up" class="row card mb-4" style="margin-bottom: 60px;max-width: 99vw;">
+                <div class="col-md-6 text-center  oe1" style="">
+                    <img src="assets/images/wastewater-treatment-clipart-8.webp" style="width:450px;max-width:60vw;" class="w-50" alt="Waste Water Treatment Plant & Equipment">
+                </div>
+                <div class="col-md-6 oe1" style="vertical-align:middle;">
+                    <h3 class="text-muted text-info"> Waste Water Treatment Plant & Equipment </h3>
+                    <ul class="mx-2">
+                        <li>Etp </li>
+                        <li>Oil Separator</li>
+                        <li>Membrane Bio Reactor</li>
+                        <li>Moving Bead Bio Reactor</li>
+                        <li>Biological Aerations</li>
+                        <li>Anorobic</li>
+                        <li>Lamela Waste Water Treatment Plant</li>
+                    </ul>
+                </div>
+            </div>
+            <div  data-aos="zoom-in-up" class="row card mb-4" style="margin-bottom: 60px;max-width: 99vw;">
+                <div class="col-md-6 text-center  oe1" style="">
+                    <img src="assets/images/spares.webp" style="width:450px;max-width:60vw;" class="w-50" alt="Water Filtering Equipment">
+                </div>
+                <div class="col-md-6 oe1" style="vertical-align:middle;">
+                    <h3 class="text-muted text-info"> Water Filtering Equipment </h3>
+                    <ul class="mx-2">
+                        <li>Industrial Pumps </li>
+                        <li>Filter Vessels</li>
+                        <li>Multiport Valve</li>
+                        <li>Filter Media</li>
+                        <li>Sand Filter</li>
+                        <li>Activate Carbon Filter</li>
+                        <li>Water Softener</li>
+                        <li>Iron Removal Filter</li>
+                    </ul>
+                </div>
+            </div>
+            <div  data-aos="zoom-in-up" class="row card mb-4" style="margin-bottom: 10px;max-width: 99vw;">
+                <div class="col-md-6 text-center hidden oe1" style="">
+                    <img src="assets/images/spares.webp"  style="width:450px;max-width:60vw;" class="w-50" alt="Services">
+                </div>
+                <div class="col-md-12 oe1" style="vertical-align:middle;">
+                    <h3 class="text-muted text-info"> Services</h3>
+                    <p>A comprehensive service package which includes installation, Up- gradation, preventive
+                        /emergency maintenance and supply of spares/consumables enables our client to have
+                        a preference.</p>
+                    <ul class="mx-2">
+
+                        <li>Annual Maintenance Contracts ( AMC’s) </li>
+                        <li>On Call Service </li>
+                        <li>System audit and optimization</li>
+                        <li>Up-gradation</li>
+                        <li>Overhaul and Cleaning</li>
+                        <li>Decaling and bio fouling removal in WTP’s</li>
+                        <li>Other ancillary services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Services section -->
+    <section id="what-we-do">
+        <div class="container-fluid">
+            <h2 class="section-title mb-2 h3">Why Choose Us?</h2>
+            <p class="text-center  mb-4">Having a highly experienced, talented, trusted, committed partner to manage your water is the best thing to consider.</p>
+
+            <div class="row mt-5 pt-3">
+                <div class="col-lg-6 mbr-col-md-10"  data-aos="zoom-in">
+                    <div class="wrap">
+                        <div class="ico-wrap">
+                            <span class="mbr-iconfont fa-thermometer-empty fa"></span>
+                        </div>
+                        <div class="text-wrap vcenter">
+                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Highly <span> Experienced</span></h2>
+                            <p class="mbr-fonts-style text1 mbr-text display-6">With 10+ years of local and international experience in the industry.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mbr-col-md-10"  data-aos="zoom-in">
+                    <div class="wrap">
+                        <div class="ico-wrap">
+                            <span class="mbr-iconfont fa-superpowers  fa"></span>
+                        </div>
+                        <div class="text-wrap vcenter">
+                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Research &
+                                <span>Development</span>
+                            </h2>
+                            <p class="mbr-fonts-style text1 mbr-text display-6"> If there is a better way to do something, we are going to figure it out and enhance our offerings.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mbr-col-md-10"  data-aos="zoom-in">
+                    <div class="wrap">
+                        <div class="ico-wrap">
+                            <span class="mbr-iconfont fa-globe fa"></span>
+                        </div>
+                        <div class="text-wrap vcenter">
+                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">24 / 7
+                                <span>Support</span>
+                            </h2>
+                            <p class="mbr-fonts-style text1 mbr-text display-6">We provide the best support in the industry whenever necessary.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mbr-col-md-10"  data-aos="zoom-in">
+                    <div class="wrap">
+                        <div class="ico-wrap">
+                            <span class="mbr-iconfont fa-trophy fa"></span>
+                        </div>
+                        <div class="text-wrap vcenter">
+                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Commitment</h2>
+                            <p class="mbr-fonts-style text1 mbr-text display-6">We do this because we love our job and we care about providing the best solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Services section -->
+
+    <div class="section-container">
+        <div class="container text-center" data-aos="fade-up" data-aos-duration="1000">
+            <div class="row section-container-spacer">
+                <div class="col-xs-12 col-md-12">
+                    <h2 class="text-center">Our Valued Customers</h2>
+                    <p>Trusted by leading organizations.</p>
+                </div>
+            </div>
+            <div class="row greyWrapper">
+                <div class="col-xs-12 col-md-4">
+                    <img src="assets/images/customers/cm.png" alt="Customer CM" class="img-responsive reveal-content image-center">
+                </div>
+
+                <div class="col-xs-12 col-md-4">
+                    <img src="assets/images/customers/sanmik.png" alt="Customer Sanmik" class="img-responsive reveal-content image-center">
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <img src="assets/images/customers/ks.png" alt="Customer KS" class="img-responsive reveal-content image-center">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section register">
+        <div class="row">
+            <div class="col-md-3 register-left">
+                <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="Delight Water Solutions Logo"/>
+                <h3>Contact Us</h3>
+                <p>We would love to hear from you!</p>
+            </div>
+            <div class="col-md-9 register-right">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active in" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading" style="margin-top: 20px;">Get in Touch</h3>
+                        <form action="https://formspree.io/f/xbjpnaww" method="POST" id="contactForm">
+                            <div class="row register-form">
+                                <div class="col-md-6 formContent">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="firstname" placeholder="First Name *" value="" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="lastname" placeholder="Last Name *" value="" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 formContent">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" placeholder="Your Email *" value="" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="tel" minlength="10" maxlength="10" name="phone" class="form-control" placeholder="Your Phone *" value="" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 formContent">
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="message" placeholder="Your Message *" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div id="my-form-status"></div>
+                                </div>
+                                <div class="col-md-12 formContent">
+                                    <div class="form-group">
+                                        <button type="submit" class="btnRegister">Send Message</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            navbarFixedTopAnimation();
+        });
+    </script>
+
+    <footer class="footer-container white-text-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8">
+                    <h3>Delight Water Solutions (pvt) ltd.</h3>
+                    <p>
+                        <i class="fa fa-map-marker"></i> No : 126 Sanasa Ideal, Colombo Road, Gampaha.
+                    </p>
+                    <p>
+                        <i class="fa fa-phone"></i> <b>Hotline : </b><a href="tel:+94772666829"> +94 77 266 6829</a><br>
+                        <i class="fa fa-phone"></i> <b>Maintenance : </b> <a href="tel:0777183106"> 077 018 3106</a>
+                    </p>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-7">
+                            <p><small>Website Development By <a href="http://drogowebs.com/" title="Website development by ">DrogoWebs</a></small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <p class="text-right">
+                        <a href="https://facebook.com/" class="social-round-icon white-round-icon fa-icon" title="Facebook">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://twitter.com/" class="social-round-icon white-round-icon fa-icon" title="Twitter">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/" class="social-round-icon white-round-icon fa-icon" title="LinkedIn">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+    <script src='assets/js/custom.js'></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            navActivePage();
+            scrollRevelation('.reveal');
+        });
+    </script>
+
+    <script type="text/javascript" src="./main.0cf8b554.js"></script>
+</body>
+
+</html>
