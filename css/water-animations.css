@@ -1,0 +1,363 @@
+/**
+ * Advanced Water Animations for Delight Water
+ * Enhances the website with dynamic water-related effects
+ */
+
+/* Water Wave Effect */
+.water-wave {
+    position: relative;
+    overflow: hidden;
+}
+
+.water-wave::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(ellipse at center, rgba(0, 153, 255, 0) 0%, rgba(0, 153, 255, 0.2) 100%);
+    animation: waterWave 15s ease-in-out infinite;
+    z-index: -1;
+    border-radius: 40%;
+}
+
+@keyframes waterWave {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animated Fish */
+.fish-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.fish {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 5px rgba(0, 153, 255, 0.5));
+}
+
+.fish-body {
+    fill: rgba(255, 255, 255, 0.7);
+}
+
+.fish-eye {
+    fill: #005c99;
+}
+
+.fish-tail {
+    fill: rgba(255, 255, 255, 0.8);
+    transform-origin: left center;
+    animation: fishTail 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes fishTail {
+    from { transform: rotateZ(0deg); }
+    to { transform: rotateZ(20deg); }
+}
+
+@keyframes swimFish {
+    0% {
+        transform: translateX(-100px) translateY(0) scaleX(1);
+    }
+    25% {
+        transform: translateX(calc(25vw)) translateY(-20px) scaleX(1);
+    }
+    45% {
+        transform: translateX(calc(100vw + 100px)) translateY(0) scaleX(1);
+    }
+    50% {
+        transform: translateX(calc(100vw + 100px)) translateY(0) scaleX(-1);
+    }
+    75% {
+        transform: translateX(calc(25vw)) translateY(20px) scaleX(-1);
+    }
+    95% {
+        transform: translateX(-100px) translateY(0) scaleX(-1);
+    }
+    100% {
+        transform: translateX(-100px) translateY(0) scaleX(1);
+    }
+}
+
+/* Underwater Particles */
+.underwater-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: floatParticle var(--float-duration) ease-in-out infinite;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(var(--x-move), var(--y-move), 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Water Drop Button Effect */
+.water-drop-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0077CC, #0099ff);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.water-drop-btn::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+    top: var(--y, 0);
+    left: var(--x, 0);
+    transform-origin: center;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.water-drop-btn:hover::before {
+    opacity: 1;
+    transform: scale(3);
+}
+
+/* Floating Text Animation */
+.floating-text {
+    animation: floatingText 3s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(0, 153, 255, 0.5);
+}
+
+@keyframes floatingText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Dynamic Water Background */
+.water-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.waves {
+    width: 100%;
+    height: 50vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.wave1 {
+    animation: moveWave1 25s linear infinite;
+}
+
+.wave2 {
+    animation: moveWave2 15s linear infinite;
+}
+
+@keyframes moveWave1 {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes moveWave2 {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(50%); }
+    100% { transform: translateX(0); }
+}
+
+/* Rain Effect */
+.rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.drop {
+    position: absolute;
+    width: 2px;
+    pointer-events: none;
+    animation: drop 0.9s linear infinite;
+}
+
+.stem {
+    width: 1px;
+    height: 60%;
+    margin-left: 1px;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.25)
+    );
+    animation: stem 0.9s linear infinite;
+}
+
+.splat {
+    width: 15px;
+    height: 10px;
+    border-top: 2px dotted rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    opacity: 1;
+    transform: scale(0);
+    animation: splat 0.9s linear infinite;
+}
+
+@keyframes drop {
+    0% { transform: translateY(-100px); }
+    75% { transform: translateY(0); opacity: 0.5; }
+    100% { transform: translateY(0); opacity: 0; }
+}
+
+@keyframes stem {
+    0% { opacity: 1; }
+    65% { opacity: 0.5; }
+    75% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes splat {
+    0% { opacity: 1; transform: scale(0); }
+    80% { opacity: 1; transform: scale(0); }
+    90% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.5); }
+}
+
+/* Icon Animation Effects */
+@keyframes iconWave {
+    0% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-3px) rotate(3deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(3px) rotate(-3deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes iconPulse {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.1); filter: brightness(1.2); }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+@keyframes iconGlow {
+    0% { filter: drop-shadow(0 0 2px rgba(0, 153, 255, 0.3)); }
+    50% { filter: drop-shadow(0 0 5px rgba(0, 153, 255, 0.7)); }
+    100% { filter: drop-shadow(0 0 2px rgba(0, 153, 255, 0.3)); }
+}
+
+/* Apply animations to different icons */
+.service-icon .icon {
+    animation: iconWave 6s ease-in-out infinite;
+}
+
+.contact-circles .contact-circle svg {
+    animation: iconPulse 3s ease-in-out infinite;
+}
+
+.strength-icon svg {
+    animation: iconGlow 4s ease-in-out infinite;
+}
+
+/* Animated Water Drop Icon Effect */
+.water-drop-icon {
+    position: relative;
+    overflow: hidden;
+}
+
+.water-drop-icon::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    transform: scale(0);
+    animation: waterDropOnIcon 3s ease-in-out infinite;
+}
+
+@keyframes waterDropOnIcon {
+    0% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* Apply water drop effect to service icons on hover */
+.service-card:hover .service-icon {
+    animation: none;
+}
+
+.service-card:hover .service-icon::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    border-radius: 50%;
+    animation: waterSplash 1s ease-out forwards;
+}
+
+@keyframes waterSplash {
+    0% {
+        transform: scale(0);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}

@@ -1,343 +1,247 @@
-// Navigation
+// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    // Menu toggle functionality with null check
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
     
-    mobileNavToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        mobileNavToggle.querySelector('i').classList.toggle('fa-bars');
-        mobileNavToggle.querySelector('i').classList.toggle('fa-times');
-    });
-    
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            navMenu.classList.remove('active');
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
             });
         });
-    });
-    
-    // Header scroll effect
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = 'none';
-        }
-    });
-    
-    // Water animation in hero section
-    const waterAnimation = document.getElementById('water-animation');
-    
-    function createRipple() {
-        const ripple = document.createElement('div');
-        ripple.style.cssText = `
-            position: absolute;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            animation: ripple 3s linear infinite;
-            pointer-events: none;
-        `;
         
-        const size = Math.random() * 100 + 50;
-        const x = Math.random() * window.innerWidth;
-        const y = Math.random() * window.innerHeight;
-        
-        ripple.style.width = `${size}px`;
-        ripple.style.height = `${size}px`;
-        ripple.style.left = `${x}px`;
-        ripple.style.top = `${y}px`;
-        
-        waterAnimation.appendChild(ripple);
-        
-        setTimeout(() => {
-            ripple.remove();
-        }, 3000);
-    }
-    
-    setInterval(createRipple, 300);
-    
-    // Water drops animation
-    function createWaterDrop() {
-        const drop = document.createElement('div');
-        drop.classList.add('water-drop');
-        drop.style.left = Math.random() * window.innerWidth + 'px';
-        drop.style.animationDuration = Math.random() * 2 + 1 + 's';
-        document.querySelector('.water-drops').appendChild(drop);
-        
-        setTimeout(() => {
-            drop.remove();
-        }, 3000);
-    }
-    
-    setInterval(createWaterDrop, 100);
-    
-    // Parallax effect for hero background
-    window.addEventListener('scroll', () => {
-        const scroll = window.pageYOffset;
-        document.querySelector('.hero-bg').style.transform = `translateY(${scroll * 0.5}px)`;
-    });
-    
-    // Form submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Add your form submission logic here
-            alert('Thank you for your message. We will get back to you soon!');
-            contactForm.reset();
-        });
-    }
-    
-    // Fixed water drops animation
-    const waterDrops = document.querySelector('.water-drops');
-    if (waterDrops) {
-        function createWaterDrop() {
-            const drop = document.createElement('div');
-            drop.classList.add('water-drop');
-            
-            // Random position and animation duration
-            const posX = Math.random() * window.innerWidth;
-            const duration = (Math.random() * 3 + 2);
-            
-            drop.style.left = `${posX}px`;
-            drop.style.animationDuration = `${duration}s`;
-            
-            waterDrops.appendChild(drop);
-            
-            // Remove drop after animation completes to prevent memory leaks
-            setTimeout(() => {
-                if (drop && drop.parentNode) {
-                    drop.remove();
-                }
-            }, duration * 1000);
-        }
-        
-        // Limit the number of drops to improve performance
-        const dropInterval = setInterval(createWaterDrop, 300);
-        
-        // Clear interval when page is not visible
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                clearInterval(dropInterval);
-            } else {
-                setInterval(createWaterDrop, 300);
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && !e.target.closest('.menu-toggle')) {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
             }
         });
     }
     
-    // Add ripple effect to hero section
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        // Create ripple container if it doesn't exist
-        let rippleContainer = document.querySelector('.ripple-container');
-        if (!rippleContainer) {
-            rippleContainer = document.createElement('div');
-            rippleContainer.classList.add('ripple-container');
-            hero.appendChild(rippleContainer);
-        }
-        
-        function createRipple() {
-            const ripple = document.createElement('div');
-            ripple.classList.add('ripple');
-            
-            const size = Math.random() * 50 + 20;
-            const posX = Math.random() * window.innerWidth;
-            const posY = Math.random() * window.innerHeight / 2 + window.innerHeight / 4;
-            
-            ripple.style.width = `${size}px`;
-            ripple.style.height = `${size}px`;
-            ripple.style.left = `${posX}px`;
-            ripple.style.top = `${posY}px`;
-            
-            rippleContainer.appendChild(ripple);
-            
-            // Remove ripple after animation
-            setTimeout(() => {
-                if (ripple && ripple.parentNode) {
-                    ripple.remove();
-                }
-            }, 3000);
-        }
-        
-        // Create ripples at a reasonable interval
-        const rippleInterval = setInterval(createRipple, 1000);
-        
-        // Clear interval when page is not visible
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                clearInterval(rippleInterval);
-            } else {
-                setInterval(createRipple, 1000);
-            }
-        });
+    // Initialize animations if elements exist
+    const rainContainer = document.querySelector('.rain');
+    if (rainContainer) {
+        createRain();
+        // Recreate rain effect on window resize
+        window.addEventListener('resize', createRain);
     }
     
-    // Improved parallax effect with throttling for better performance
-    let lastScrollTime = 0;
-    const scrollThrottle = 10; // ms between scroll updates
-    
-    window.addEventListener('scroll', () => {
-        const now = Date.now();
-        
-        if (now - lastScrollTime > scrollThrottle) {
-            lastScrollTime = now;
-            
-            const scroll = window.pageYOffset;
-            const heroBg = document.querySelector('.hero-bg');
-            
-            if (heroBg) {
-                heroBg.style.transform = `translateY(${scroll * 0.3}px)`;
-            }
-        }
-    });
-    
-    // Remove the dynamically added CSS for ripple animation as we've added it to the CSS file
-    const existingStyle = document.querySelector('style');
-    if (existingStyle && existingStyle.textContent.includes('@keyframes ripple')) {
-        existingStyle.remove();
+    const bubblesContainer = document.querySelector('.water-bubbles');
+    if (bubblesContainer) {
+        createBubbles();
     }
     
-    // Interactive fish movement
-    const fishContainer = document.querySelector('.fish-container');
-    const allFish = document.querySelectorAll('.fish');
-    
-    if (fishContainer && allFish.length) {
-        // Mouse movement interaction with fish
-        document.addEventListener('mousemove', function(e) {
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
-            
-            // Check if mouse is in the services section
-            const serviceSection = document.querySelector('.services');
-            const sectionRect = serviceSection.getBoundingClientRect();
-            
-            if (
-                mouseY >= sectionRect.top && 
-                mouseY <= sectionRect.bottom && 
-                mouseX >= sectionRect.left && 
-                mouseX <= sectionRect.right
-            ) {
-                allFish.forEach(fish => {
-                    const fishRect = fish.getBoundingClientRect();
-                    const fishCenterX = fishRect.left + fishRect.width / 2;
-                    const fishCenterY = fishRect.top + fishRect.height / 2;
-                    
-                    // Calculate distance between mouse and fish
-                    const deltaX = mouseX - fishCenterX;
-                    const deltaY = mouseY - fishCenterY;
-                    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-                    
-                    // Fish react only if mouse is close enough (within 150px)
-                    if (distance < 150) {
-                        // Flee from mouse direction
-                        const angle = Math.atan2(deltaY, deltaX);
-                        const fleeX = -Math.cos(angle) * (150 - distance) * 0.05;
-                        const fleeY = -Math.sin(angle) * (150 - distance) * 0.05;
-                        
-                        // Apply temporary transformation
-                        fish.style.transform = `translate(${fleeX}px, ${fleeY}px) ${fish.style.transform || ''}`;
-                        
-                        // Reset after short delay
-                        setTimeout(() => {
-                            fish.style.transform = fish.style.transform.replace(/translate\([^)]+\) /, '');
-                        }, 500);
-                    }
-                });
-            }
-        });
-        
-        // Click interaction - Fish scatter
-        serviceSection.addEventListener('click', function() {
-            allFish.forEach(fish => {
-                // Generate random values for movement
-                const randomX = (Math.random() - 0.5) * 100;
-                const randomY = (Math.random() - 0.5) * 100;
-                
-                // Apply jump animation
-                fish.style.transition = 'transform 0.5s ease-out';
-                fish.style.transform = `translate(${randomX}px, ${randomY}px) ${fish.style.transform || ''}`;
-                
-                // Reset after animation
-                setTimeout(() => {
-                    fish.style.transition = '';
-                    fish.style.transform = fish.style.transform.replace(/translate\([^)]+\) /, '');
-                }, 500);
-            });
-        });
-    }
-    
-    // Interactive hero fish
-    const heroFishContainer = document.querySelector('.hero-fish-container');
-    const heroFish = document.querySelectorAll('.hero-fish');
-    
-    if (heroFishContainer && heroFish.length) {
-        // Mouse movement interaction with hero fish
-        document.addEventListener('mousemove', function(e) {
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
-            
-            // Check if mouse is in the hero section
-            const heroSection = document.querySelector('.hero');
-            const sectionRect = heroSection.getBoundingClientRect();
-            
-            if (
-                mouseY >= sectionRect.top && 
-                mouseY <= sectionRect.bottom && 
-                mouseX >= sectionRect.left && 
-                mouseX <= sectionRect.right
-            ) {
-                heroFish.forEach(fish => {
-                    const fishRect = fish.getBoundingClientRect();
-                    const fishCenterX = fishRect.left + fishRect.width / 2;
-                    const fishCenterY = fishRect.top + fishRect.height / 2;
-                    
-                    // Calculate distance between mouse and fish
-                    const deltaX = mouseX - fishCenterX;
-                    const deltaY = mouseY - fishCenterY;
-                    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-                    
-                    // Fish react only if mouse is close enough (within 150px)
-                    if (distance < 200) {
-                        // Flee from mouse direction
-                        const angle = Math.atan2(deltaY, deltaX);
-                        const fleeX = -Math.cos(angle) * (200 - distance) * 0.05;
-                        const fleeY = -Math.sin(angle) * (200 - distance) * 0.05;
-                        
-                        // Apply temporary transformation
-                        fish.style.transition = 'transform 0.5s ease';
-                        fish.style.transform = `translate(${fleeX}px, ${fleeY}px) ${fish.style.transform || ''}`;
-                        
-                        // Reset after short delay
-                        setTimeout(() => {
-                            fish.style.transition = '';
-                            fish.style.transform = fish.style.transform.replace(/translate\([^)]+\) /, '');
-                        }, 500);
-                    }
-                });
-            }
-        });
-    }
+    // Initialize Product Showcase Enhancements
+    initializeProductShowcase();
 });
 
-// Add this CSS to the existing styles
-const style = document.createElement('style');
-style.textContent = `
-@keyframes ripple {
-    0% {
-        transform: scale(0);
-        opacity: 0.5;
+// Rain drop effect function
+function createRain() {
+    const rainContainer = document.querySelector('.rain');
+    if (!rainContainer) return;
+    
+    const rainAmount = 200;
+    let i = 1;
+    let drops = '';
+
+    while (i < rainAmount) {
+        const randoHundo = (Math.floor(Math.random() * (98 - 1 + 1) + 1));
+        const delay = (Math.random() * 20).toFixed(2);
+        const duration = (Math.random() * 0.5 + 0.7).toFixed(2);
+
+        drops += `<div class="drop" style="left: ${randoHundo}%; animation-delay: ${delay}s; animation-duration: ${duration}s;">
+            <div class="stem" style="animation-delay: ${delay}s; animation-duration: ${duration}s;"></div>
+            <div class="splat" style="animation-delay: ${delay}s; animation-duration: ${duration}s;"></div>
+        </div>`;
+        i++;
     }
-    100% {
-        transform: scale(2);
-        opacity: 0;
+
+    rainContainer.innerHTML = drops;
+}
+
+// Bubble animation function
+function createBubbles() {
+    const bubblesContainer = document.querySelector('.water-bubbles');
+    if (!bubblesContainer) return;
+    
+    const bubbleCount = 15;
+
+    for (let i = 0; i < bubbleCount; i++) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble-3d';
+        
+        // Random sizes
+        const size = Math.random() * 40 + 20;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        
+        // Random positions
+        const xStart = Math.random() * 300;
+        const yStart = Math.random() * 300;
+        
+        // Random movements
+        const xMove = (Math.random() - 0.5) * 100;
+        const yMove = (Math.random() - 0.5) * 100;
+        
+        // Random durations
+        const floatDuration = Math.random() * 4 + 4;
+        const rotateDuration = Math.random() * 6 + 6;
+        
+        // Apply custom properties
+        bubble.style.setProperty('--x-start', `${xStart}px`);
+        bubble.style.setProperty('--y-start', `${yStart}px`);
+        bubble.style.setProperty('--x-move', `${xMove}px`);
+        bubble.style.setProperty('--y-move', `${yMove}px`);
+        bubble.style.setProperty('--float-duration', `${floatDuration}s`);
+        bubble.style.setProperty('--rotate-duration', `${rotateDuration}s`);
+        
+        // Random delays
+        bubble.style.animationDelay = `${Math.random() * -10}s`;
+        
+        bubblesContainer.appendChild(bubble);
     }
 }
-`;
-document.head.appendChild(style);
+
+// Product Showcase Enhancements
+function initializeProductShowcase() {
+    // Image Loading Enhancement
+    const productImages = document.querySelectorAll('.product-image img');
+    
+    productImages.forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', () => {
+                img.classList.add('loaded');
+            });
+        }
+    });
+    
+    // Intersection Observer for Product Cards Animation
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationDelay = `${entry.target.dataset.delay || 0}s`;
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe product cards and features
+    const observableElements = document.querySelectorAll('.product-showcase-card, .product-card, .feature-highlight');
+    observableElements.forEach((el, index) => {
+        el.dataset.delay = (index * 0.1).toString();
+        observer.observe(el);
+    });
+    
+    // Product Card Tilt Effect
+    const productCards = document.querySelectorAll('.product-showcase-card, .product-card');
+    
+    productCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / centerY * -10;
+            const rotateY = (x - centerX) / centerX * 10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+        });
+    });
+    
+    // Product Image Zoom on Hover
+    const productShowcases = document.querySelectorAll('.product-showcase-card');
+    
+    productShowcases.forEach(showcase => {
+        const img = showcase.querySelector('img');
+        const overlay = showcase.querySelector('.product-overlay');
+        
+        if (img && overlay) {
+            showcase.addEventListener('mouseenter', () => {
+                img.style.transform = 'scale(1.1)';
+                overlay.style.opacity = '1';
+                overlay.style.transform = 'translateY(0)';
+            });
+            
+            showcase.addEventListener('mouseleave', () => {
+                img.style.transform = 'scale(1)';
+                overlay.style.opacity = '0';
+                overlay.style.transform = 'translateY(20px)';
+            });
+        }
+    });
+    
+    // Smooth CTA Button Interactions
+    const ctaButtons = document.querySelectorAll('.cta-btn');
+    
+    ctaButtons.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+            btn.style.transform = 'translateY(-3px) scale(1.02)';
+        });
+        
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translateY(0) scale(1)';
+        });
+        
+        btn.addEventListener('click', (e) => {
+            // Create ripple effect
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            
+            const rect = btn.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            
+            btn.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+    
+    // Product Specs Tags Animation
+    const specTags = document.querySelectorAll('.spec-tag');
+    
+    specTags.forEach((tag, index) => {
+        tag.style.animationDelay = `${index * 0.1}s`;
+        tag.addEventListener('mouseenter', () => {
+            tag.style.transform = 'translateY(-2px) scale(1.05)';
+            tag.style.boxShadow = '0 4px 12px rgba(0, 210, 255, 0.3)';
+        });
+        
+        tag.addEventListener('mouseleave', () => {
+            tag.style.transform = 'translateY(0) scale(1)';
+            tag.style.boxShadow = 'none';
+        });
+    });
+}
